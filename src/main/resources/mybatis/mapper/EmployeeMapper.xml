@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.byw.mapper.EmployeeMapper">
+
+    <select id="getAllEmployee" resultMap="Employee_department">
+        select emp.id              e_id,
+               emp.lastName        e_lastName,
+               emp.email           e_email,
+               emp.gender          e_gender,
+               emp.departmentId    e_departmentId,
+               dept.id             d_id,
+               dept.departmentName d_departmentName,
+               emp.birthday        e_birthday
+
+        from managersystem.employee emp,
+             managersystem.department dept
+        where emp.departmentId = dept.id
+    </select>
+    <resultMap id="Employee_department" type="com.byw.pojo.Employee">
+        <result property="id" column="e_id"></result>
+        <result property="lastName" column="e_lastName"></result>
+        <result property="email" column="e_email"></result>
+        <result property="gender" column="e_gender"></result>
+        <result property="birthday" column="e_birthday"></result>
+        <association property="department" javaType="com.byw.pojo.Department">
+            <result property="id" column="d_id"></result>
+            <result property="departmentName" column="d_departmentName"></result>
+        </association>
+    </resultMap>
+
+
+    <insert id="addEmployee" parameterType="com.byw.pojo.Employee">
+        insert into managersystem.employee (id, lastName, email, gender, departmentId, birthday)
+        values (#{id}, #{lastName}, #{email}, #{gender}, #{department.id},
+                #{birthday})
+    </insert>
+
+
+    <delete id="deleteEmployeeById" parameterType="Integer">
+        delete
+        from managersystem.employee
+        where id = #{id}
+    </delete>
+
+
+    <select id="queryById" resultMap="queryOneEmployee" parameterType="Integer">
+        select emp.id              e_id,
+               emp.lastName        e_lastName,
+               emp.email           e_email,
+               emp.gender          e_gender,
+               emp.departmentId    e_departmentId,
+               dept.id             d_id,
+               dept.departmentName d_departmentName,
+               emp.birthday        e_birthday
+
+        from managersystem.employee emp,
+             managersystem.department dept
+        where emp.departmentId = dept.id
+          and emp.id = #{id}
+    </select>
+    <resultMap id="queryOneEmployee" type="Employee">
+        <result property="id" column="e_id"></result>
+        <result property="lastName" column="e_lastName"></result>
+        <result property="email" column="e_email"></result>
+        <result property="gender" column="e_gender"></result>
+        <result property="birthday" column="e_birthday"></result>
+        <association property="department" javaType="Department">
+            <result property="id" column="d_id"></result>
+            <result property="departmentName" column="d_departmentName"></result>
+        </association>
+    </resultMap>
+
+
+    <update id="updateEmployee" parameterType="Employee">
+        update managersystem.employee
+        set lastName     = #{lastName},
+            email        = #{email},
+            gender       = #{gender},
+            departmentId = #{department.id},
+            birthday     = #{birthday}
+        where id = #{id};
+    </update>
+</mapper>
