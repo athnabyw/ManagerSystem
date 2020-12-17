@@ -2,7 +2,7 @@ spring:
   datasource:
     druid:
       #JDBC \u914D\u7F6E
-      username: root
+      username: athnabyw
       password: 19970821
       url: jdbc:mysql://localhost:3306/managersystem?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -62,6 +62,7 @@ spring:
 server:
   servlet:
     context-path: /MS  #\u914D\u7F6E\u9879\u76EE\u540D \u4EE5\u524Dtomcat\u7684\u865A\u62DF\u8DEF\u5F84
+  port: 9000
 
 
 #=================mybatis=================#
