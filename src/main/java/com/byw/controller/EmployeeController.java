@@ -36,7 +36,7 @@ public class EmployeeController {
     public String list(Model model) {
         List<Employee> employees = employeeService.getAllEmployee();
         model.addAttribute("employeesList", employees);
-        return "/emp/list";
+        return "emp/list";
     }
 
     //跳转  添加一个员工  页面
@@ -44,7 +44,7 @@ public class EmployeeController {
     public String goAdd(Model model) {
         List<Department> allDepartment = departmentService.getAllDepartment();
         model.addAttribute("allDepartment", allDepartment);
-        return "/emp/add";
+        return "emp/add";
     }
 
     //添加一个员工
@@ -66,7 +66,7 @@ public class EmployeeController {
         List<Department> allDepartment = departmentService.getAllDepartment();
         model.addAttribute("allDepartment", allDepartment);
 
-        return "/emp/update";
+        return "emp/update";
     }
 
     //修改一个员工

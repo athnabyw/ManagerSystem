@@ -13,6 +13,8 @@
 
  Date: 15/11/2020 21:00:28
 */
+CREATE DATABASE managersystem;
+USE managersystem;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
