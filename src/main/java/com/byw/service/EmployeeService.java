@@ -2,6 +2,8 @@ package com.byw.service;
 
 import com.byw.mapper.EmployeeMapper;
 import com.byw.pojo.Employee;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,11 @@ public class EmployeeService {
     @Autowired
     EmployeeMapper employeeMapper;
 
+    Logger logger = LoggerFactory.getLogger(EmployeeService.class);
+
     //查询所有的员工
     public List<Employee> getAllEmployee() {
+        logger.info("---查询所有用户");
         List<Employee> employees = employeeMapper.getAllEmployee();
         System.out.println("查询所有员工 ->");
         for (Employee employee : employees) {
