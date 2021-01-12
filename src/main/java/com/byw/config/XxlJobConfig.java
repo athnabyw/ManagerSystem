@@ -41,21 +41,21 @@ public class XxlJobConfig {
     private int logRetentionDays;
 
 
-    @Bean
-    public XxlJobSpringExecutor xxlJobExecutor() {
-        logger.info(">>>>>>>>>>> xxl-job config init.");
-        XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
-        xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
-        xxlJobSpringExecutor.setAppname(appname);
-        xxlJobSpringExecutor.setAddress(address);
-        xxlJobSpringExecutor.setIp(ip);
-        xxlJobSpringExecutor.setPort(port);
-        xxlJobSpringExecutor.setAccessToken(accessToken);
-        xxlJobSpringExecutor.setLogPath(logPath);
-        xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);
-
-        return xxlJobSpringExecutor;
-    }
+//    @Bean
+//    public XxlJobSpringExecutor xxlJobExecutor() {
+//        logger.info(">>>>>>>>>>> xxl-job config init.");
+//        XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
+//        xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
+//        xxlJobSpringExecutor.setAppname(appname);
+//        xxlJobSpringExecutor.setAddress(address);
+//        xxlJobSpringExecutor.setIp(ip);
+//        xxlJobSpringExecutor.setPort(port);
+//        xxlJobSpringExecutor.setAccessToken(accessToken);
+//        xxlJobSpringExecutor.setLogPath(logPath);
+//        xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);
+//
+//        return xxlJobSpringExecutor;
+//    }
 
     /**
      * 针对多网卡、容器内部署等情况，可借助 "spring-cloud-commons" 提供的 "InetUtils" 组件灵活定制注册IP；
